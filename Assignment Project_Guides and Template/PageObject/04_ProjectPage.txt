@@ -1,0 +1,113 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+
+# TODO: Write Dcocumentation e.g. Project Test scenario. CRUD Operation: Create, Read, Update, Delete
+
+Documentation	
+
+# TODO: Write Precondition, Postcondition, Tags
+
+Pre Condition	 
+Post Condition	
+Tags
+
+#******************* Common Variables ********************
+
+*** Variables ***
+
+# NOTE: Please Remove your login credential before uploading Assignments
+
+# TODO: Write Project creation field variables
+
+
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# TODO: Write Positive and Negative Test Cases and Test Process steps
+
+# Positive Test examples are below write test process steps for each below test case
+
+	Create blank project
+	Create template project 
+	Update name of template project
+	Delete template project
+	Valide that message is showing Project 'First project ' was successfully created.
+
+# Negative Test examples are below write test process steps for each below test case
+
+	Create a blank project with the previous same name
+
+
+#Test Case Structure for Project Creation
+
+Precondition:
+The user must be logged in to the GitLab application.
+The user must have permission to create projects within the selected namespace.
+
+Postcondition:
+The created project should appear in the user's project list.
+Any created projects should be deleted after the tests to maintain a clean state.
+
+Tags:
+ProjectCreation
+PositiveTests
+NegativeTests
+GitLab
+
+Common Variables:
+
+${VALID_PROJECT_NAME}    First project
+${TEMPLATE_PROJECT_NAME}  Sample Template Project
+${UPDATED_PROJECT_NAME}   Updated Project Name
+${DUPLICATE_PROJECT_NAME} First project  # Same name as an existing project
+
+Test Cases:
+Positive Test Cases
+1. Create Blank Project
+
+- Open web application URL: https://gitlab.com/projects/new
+- Input project name: ${VALID_PROJECT_NAME}
+- Leave other fields as default.
+- Click on the "Create project" button.
+- Verify that the project is created and the message "Project '${VALID_PROJECT_NAME}' was successfully created." is displayed.
+
+2. Create Template Project
+
+- Open web application URL: https://gitlab.com/projects/new
+- Input project name: ${TEMPLATE_PROJECT_NAME}
+- Select the option to create from a template.
+- Choose a template from the available options.
+- Click on the "Create project" button.
+- The project is created and the message "Project '${TEMPLATE_PROJECT_NAME}' was successfully created." is displayed.
+
+3. Update Name of Template Project
+
+- Navigate to the project page for ${TEMPLATE_PROJECT_NAME}.
+- Click on the "Edit project" button.
+- Change the project name to ${UPDATED_PROJECT_NAME}.
+- Click on the "Save changes" button.
+- Verify that the message "Project '${UPDATED_PROJECT_NAME}' was successfully updated." is displayed.
+
+4. Delete Template Project
+
+- Navigate to the project page for ${UPDATED_PROJECT_NAME}.
+- Click on the "Settings" tab.
+- Scroll down to the "Advanced" section.
+- Click on the "Remove project" button.
+- Confirm the deletion.
+- Verify that the message "Project '${UPDATED_PROJECT_NAME}' was successfully deleted." is displayed.
+
+5. Validate Project Creation Message
+
+Negative Test Cases
+1. Create a Blank Project with the Previous Same Name
+
+- Open web application URL: https://gitlab.com/projects/new
+- Input project name: ${DUPLICATE_PROJECT_NAME}  # Same name as an existing project
+- Leave other fields as default.
+- Click on the "Create project" button.
+- An error message is displayed indicating that the project name must be unique.

@@ -1,0 +1,72 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+Documentation	Issue Test scenario. CRUD Operation: Create, Read, Update, Delete
+
+# TODO: Write Precondition and Postcondition, Tags 
+
+Pre Condition	Tips: Project must be created by the user before 
+Post Condition	
+Tags
+
+#******************* Common Variables ********************
+
+
+*** Variables ***
+
+# NOTE: Please Remove your login credential before uploading Assignments
+
+# TODO: Write Issue creation field variables, Updated name of the issue
+
+
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# TODO: Write Positive Test Cases and Test Process steps
+
+# Positive Test examples are below write test process steps for each below test case
+
+	Create issue,
+ 	Update name of issue, 
+	Create second issue with privious updated name
+    Delete first issue
+
+#Positive Test Cases for Issue Management in GitLab
+
+1. Create Issue
+- Open web application URL: https://gitlab.com/laurea-group/first-project/-/issues/new
+- Input a valid title for the issue in the "Title" field (e.g., "First Issue").
+- Optionally, provide a description in the "Description" field.
+- Assign the issue to a user if necessary.
+- Set any relevant labels or milestones.
+- Click on the "Submit issue" button.
+- Verify that the issue is created and the message 'First Issue' was successfully created." is displayed.
+- The new issue appears in the issue list.
+
+2. Update Name of Issue
+- Navigate to the issue page for the created issue (e.g., "First Issue").
+- Click on the "Edit" button or icon to modify the issue.
+- Change the title of the issue to a new name (e.g., "Updated First Issue").
+- Optionally, update the description or other fields as needed.
+- Click on the "Save changes" button.
+- Verify that the message "'Updated First Issue' was successfully updated." is displayed.
+- The issue title is updated in the issue list.
+
+3. Create Second Issue with Previous Updated Name
+- Open web application URL: https://gitlab.com/laurea-group/first-project/-/issues
+- Input the updated title of the previous issue (e.g., "Updated First Issue") in the "Title" field.
+- Optionally, provide a description in the "Description" field.
+- Assign the issue to a user if necessary.
+- Set any relevant labels or milestones.
+- Click on the "Submit issue" button.
+- An error message is displayed indicating that the issue title must be unique.
+
+4. Delete First Issue
+- Navigate to the issue page for the first issue (e.g., "First Issue").
+- Click on the three dot besides Edit then click on "Delete Issue" button or icon.
+- Confirm the deletion in the prompt that appears.
+- Verify that the message "'Updated First Issue' was successfully deleted." is displayed.
+- The issue no longer appears in the issue list.
